@@ -1,0 +1,9 @@
+Hello, <%= @user.uuid%>!!
+Welcome to our Eatwit.
+
+Thank you for eatwit user registration.
+so, You need to activate to get started.
+
+Please complete the activation from the link below.
+
+<%= edit_user_url(@user) + "?token=" + @token%>
