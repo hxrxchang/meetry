@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+  has_one :user_information
+  has_many :social_accounts
+  has_many :connect_histories, foreign_key: :own_user_id
+  has_many :friends, through: :connect_histories, class_name: "User", foreign_key: :yours_user_id, source: "yours_user"
+  
   validates :uuid, uniqueness: true
 
   def self.find_from_token(token)
