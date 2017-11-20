@@ -1,0 +1,2 @@
+class ConnectHistory < ApplicationRecord
+end
