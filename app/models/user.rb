@@ -23,4 +23,12 @@ class User < ApplicationRecord
   def send_email
     UserMailer.account_activation(self, verifier_token).deliver_now
   end
+
+  def self.encrypt(token)
+    Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def self.new_remember_token
+    SecureRandom.urlsafe_base64
+  end
 end

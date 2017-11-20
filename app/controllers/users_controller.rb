@@ -16,7 +16,10 @@ class UsersController < ApplicationController
   def edit
     token = params[:token]
     @user = User.find_from_token(token)
-    if @user.blank?
+    if @user.present?
+      sign_in(@user)
+    else
+      flash[:error] = "Token Invalid"
       redirect_to root_path
     end
   end
