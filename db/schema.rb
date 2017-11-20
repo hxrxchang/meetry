@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20171120084025) do
     t.string "gmail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
