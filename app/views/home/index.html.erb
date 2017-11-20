@@ -2,9 +2,9 @@
 <% if user_signed_in? %>
   <p>
     Hello!
-    <%= current_user.uuid %>
+    <%= link_to current_user.uuid, current_user %>
   <p>
-  <%= link_to "Connect Friend!", "#"%><br>
+  <%= link_to "Connect Friend!", find_path %><br>
 <% end %>
 
 <%= link_to "Registration", new_user_path %>

@@ -1,0 +1,11 @@
+<h2>Send Request for you from <%= @request.friend.uuid%>!</h2>
+<%= form_for(@request, url: authenticate_path(@request)) do |f| %>
+<%= f.hidden_field :request_user_id %>
+<%= f.hidden_field :request_status, value: :accept %>
+<%= f.submit "Accept!" %>
+<% end%>
+<%= form_for(@request, url: authenticate_path(@request)) do |f| %>
+<%= f.hidden_field :request_user_id %>
+<%= f.hidden_field :request_status, value: :refuse %>
+<%= f.submit "Refuse..." %>
+<% end%>

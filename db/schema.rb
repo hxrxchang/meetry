@@ -10,18 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120143736) do
+ActiveRecord::Schema.define(version: 20171120161316) do
 
   create_table "connect_histories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "own_user_id", null: false
     t.integer "yours_user_id", null: false
-    t.integer "pair_image_id", null: false
+    t.integer "pair_image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "friend_requests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "friend_id", null: false
+    t.integer "request_user_id", null: false
+    t.integer "request_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "pair_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "connect_history_id"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
