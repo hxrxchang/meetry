@@ -1,0 +1,9 @@
+<h1>Your ID</h1>
+
+<div>
+  <%= form_for(@user) do |f| %>
+    <%= f.text_field :uuid, placeholder:"YourId" %>
+    <%= f.text_field :email, placeholder:"email" %>
+    <%= f.submit %>
+  <% end %>
+</div>
