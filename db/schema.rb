@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120081626) do
+ActiveRecord::Schema.define(version: 20171120100028) do
 
   create_table "connect_histories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "user_id", null: false
+    t.integer "own_user_id", null: false
+    t.integer "yours_user_id", null: false
     t.integer "pair_image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(version: 20171120081626) do
     t.string "gmail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
