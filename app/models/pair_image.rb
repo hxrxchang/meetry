@@ -1,3 +1,3 @@
 class PairImage < ApplicationRecord
-  belongs_to :connect_history
+  has_one :connect_history
 end
