@@ -26,4 +26,13 @@ ActiveRecord::Schema.define(version: 20171120055308) do
     t.datetime "updated_at", null: false
   end
 
+
+  create_table "user_informations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id"
+    t.integer "tel"
+    t.string "gmail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
