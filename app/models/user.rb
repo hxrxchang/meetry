@@ -1,13 +1,9 @@
 class User < ApplicationRecord
   has_one :user_information
   has_many :social_accounts
-<<<<<<< HEAD
   has_many :connect_histories, foreign_key: :own_user_id
   has_many :friends, through: :connect_histories, class_name: "User", foreign_key: :yours_user_id, source: "yours_user"
-=======
-  has_many :connect_histories
   
->>>>>>> 7a749c6ffe367acb9b32325f1b5f3f75f2899e32
   validates :uuid, uniqueness: true
 
   def self.find_from_token(token)
