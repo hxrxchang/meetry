@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :mypage_or_accept_user, only: :show
+  # before_action :mypage_or_accept_user, only: :show
 
   def new
     @user = User.new
@@ -68,14 +68,14 @@ class UsersController < ApplicationController
     params.require(:user_information).permit(:user_id, :tel, :gmail, :image)
   end
 
-  def mypage_or_accept_user
-    not_mypage = params[:id] != current_user.id.to_s
-    friends = FriendRequest.where(request_user_id: current_user.id, request_status: :accept)
-    friend = !!friends.find_by(id: params[:id])
+  # def mypage_or_accept_user
+  #   not_mypage = params[:id] != current_user.id.to_s
+  #   friends = FriendRequest.where(request_user_id: current_user.id, request_status: :accept)
+  #   friend = !!friends.find_by(id: params[:id])
 
-    if [not_mypage, !friend].all?
-      flash[:error] = "MyPage Only!"
-      redirect_to root_path
-    end
-  end
+  #   if [not_mypage, !friend].all?
+  #     flash[:error] = "MyPage Only!"
+  #     redirect_to root_path
+  #   end
+  # end
 end
