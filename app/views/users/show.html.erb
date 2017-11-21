@@ -1,0 +1,12 @@
+<h2>Your Receive Request</h2>
+<% @receive_requests.each do |r_request|%>
+  <p><%= r_request.request_user.uuid %> : <%= r_request.request_status %> </p>
+<% end %>
+
+<h2>Your Send Request</h2>
+<% @send_requests.each do |s_request|%>
+<p><%= s_request.friend.uuid %> : <%= s_request.request_status %> </p>
+<% end %>
+
+<%= link_to 'SNSを設定する', new_social_account_path %>
+
