@@ -1,25 +1,43 @@
-<h2>Your Receive Request</h2>
-<% @receive_requests.each do |r_request|%>
-  <p><%= r_request.request_user.uuid %> : <%= r_request.request_status %> </p>
-<% end %>
+<% if user_signed_in? %>
+  <% if current_user.id == params[:id].to_i %>
+    <h2>Your Receive Request</h2>
+    <% @receive_requests.each do |r_request|%>
+      <% if r_request.accept? %>
+        <p><%= link_to r_request.request_user.uuid, r_request.request_user %> : <%= r_request.request_status %> </p>
+      <% else %>
+        <p><%= r_request.request_user %> : <%= r_request.request_status %> </p>
+      <% end %>
+    <% end %>
 
-<h2>Your Send Request</h2>
-<% @send_requests.each do |s_request|%>
-<p><%= s_request.friend.uuid %> : <%= s_request.request_status %> </p>
-<% end %>
+    <h2>Your Send Request</h2>
+    <% @send_requests.each do |s_request|%>
+      <% if s_request.accept? %>
+        <p><%= link_to s_request.friend.uuid, s_request.friend %> : <%= s_request.request_status %> </p>
+      <% else %>
+        <p><%= s_request.friend.uuid %> : <%= s_request.request_status %> </p>
+      <% end %>
+    <% end %>
 
-<!-- <%= link_to 'SNSを設定する', new_social_account_path %> -->
-<div>
-  <h2>SNSアカウントを追加してみよう！</h2>
-  <%= form_for(@social_account , data: { remote: true } ) do |f| %>
-    <%= f.select :provider, [["twitter", "twitter"], ["facebook", "facebook"], ["line", "line"], ["instagram", "instagram"]] %>
-    <%= f.text_field :url, placeholder: "url" %>
-    <%= f.submit %>
+    <!-- <%= link_to 'SNSを設定する', new_social_account_path %> -->
+    <div>
+      <h2>SNSアカウントを追加してみよう！</h2>
+      <%= form_for(@social_account , data: { remote: true } ) do |f| %>
+        <%= f.select :provider, [["twitter", "twitter"], ["facebook", "facebook"], ["line", "line"], ["instagram", "instagram"]] %>
+        <%= f.text_field :url, placeholder: "url" %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+
+    <h2>ユーザー情報</h2>
+
+    <div id="user-social-profiles">
+      <%= render current_user.social_accounts %>
+    </div>
+  <% else %>
+    <h2>ユーザー情報</h2>
+
+    <div id="user-social-profiles">
+      <%= render @user.social_accounts %>
+    </div>
   <% end %>
-</div>
-
-<h2>ユーザー情報</h2>
-
-<div id="user-social-profiles">
-  <%= render current_user.social_accounts %>
-</div>
+<% end %>

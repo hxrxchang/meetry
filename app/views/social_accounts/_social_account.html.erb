@@ -1,4 +1,6 @@
 <h3><%= social_account.provider %></h3>
 <p><%= link_to social_account.provider ,get_url_from(social_account) %></p>
-<%= link_to "delete", social_account, method: :delete, data: { confirm: "You sure?" }, remote: true %>
+<% if current_user.id == params[:id]%>
+  <%= link_to "delete", social_account, method: :delete, data: { confirm: "You sure?" }, remote: true %>
+<% end %>
 <hr>

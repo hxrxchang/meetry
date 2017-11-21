@@ -1,6 +1,7 @@
 class AuthenticatesController < ApplicationController
   def new
     @request = current_user.friend_requests.yet.last
+    redirect_to root_path if @request.blank?
   end
 
   def update
@@ -17,7 +18,7 @@ class AuthenticatesController < ApplicationController
   end
 
   private
-  
+
   def request_params
     params.require(:friend_request).permit(:request_status)
   end
