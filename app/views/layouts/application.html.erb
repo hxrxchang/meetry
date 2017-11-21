@@ -10,8 +10,9 @@
   </head>
 
   <body>
+      <%= yield %>
+
     <!-- TODO: Flashを入れたい? -->
     <p><%= flash[:error] %></p>
-    <%= yield %>
   </body>
 </html>
