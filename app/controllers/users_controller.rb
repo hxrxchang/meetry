@@ -41,12 +41,21 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    user_information = UserInformation.new(user_information_params)
-    @user.user_information = user_information
-    if @user.save
-      redirect_to @user
+    user_information = @user.user_information
+    if user_information
+      if @user.user_information.update(user_information_params)
+        redirect_to @user
+      else
+        render :edit
+      end
     else
-      render :edit
+      user_information = UserInformation.new(user_information_params)
+      @user.user_information = user_information
+      if @user.save
+        redirect_to @user
+      else
+        render :edit
+      end
     end
   end
 

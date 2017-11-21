@@ -5,7 +5,7 @@
       <% if r_request.accept? %>
         <p><%= link_to r_request.request_user.uuid, r_request.request_user %> : <%= r_request.request_status %> </p>
       <% else %>
-        <p><%= r_request.request_user %> : <%= r_request.request_status %> </p>
+        <p><%= r_request.request_user.uuid %> : <%= r_request.request_status %> </p>
       <% end %>
     <% end %>
 
