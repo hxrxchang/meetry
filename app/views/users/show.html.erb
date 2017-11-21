@@ -23,8 +23,8 @@
       <h2>SNSアカウントを追加してみよう！</h2>
       <%= form_for(@social_account , data: { remote: true } ) do |f| %>
         <%= f.select :provider, [["twitter", "twitter"], ["facebook", "facebook"], ["line", "line"], ["instagram", "instagram"]] %>
-        <%= f.text_field :url, placeholder: "url" %>
-        <%= f.submit %>
+        <%= f.text_field :url, placeholder: "url", class: "input-field" %>
+        <%= f.submit class: "button" %>
       <% end %>
     </div>
 
@@ -42,4 +42,9 @@
       <%= render @user.social_accounts %>
     </div>
   <% end %>
+
+  <% if session[:img_id] %>
+    <p>あなたと出会った日:<%= Date.today %></p>
+    <img src="<%= PairImage.find(session[:img_id]).image%>" width="100%">
+  <% end%>
 <% end %>

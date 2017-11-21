@@ -7,11 +7,11 @@
     Hello!
     <%= link_to current_user.uuid, current_user, class:"currentUser" %>
   <p>
-  <%= link_to "写真を撮ろう！", new_pair_image_path %><br>
+  <%= link_to "写真を撮ろう！", new_pair_image_path, class: "button" %><br>
 <% end %>
 <div class="regist-box">
-  <%= link_to "登録をしよう！", new_user_path , class:"registration" %>
+  <%= link_to "登録をしよう！", new_user_path , class:"button" %>
 </div>
 <div class="regist-box">
-  <%= link_to "ログインしよう！", login_path, class:"registration" %>
+  <%= link_to "ログインしよう！", login_path, class:"button" %>
 </div>

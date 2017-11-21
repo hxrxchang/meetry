@@ -32,7 +32,7 @@ font-family: serif;
   font-family: serif;
 }
 .registration:link{
-font-size: 1.5rem;
+font-size: 2rem;
 text-decoration: none;
 }
 .registration:visited{
@@ -42,19 +42,38 @@ text-decoration: none;
   color: blue;
 }
 .regist-box{
+  margin: 10px 0;
   text-align: center;
 }
 a:-webkit-any-link:hover{
   color: blue;
 }
 a:-webkit-any-link {
-  font-size: 2rem;
+  font-size: 20px;
   color: #66FFFF;
 text-decoration: none;
 }
 p{
-  font-size: 2rem;
+  font-size: 20px;
   color: #66FFFF;
   text-align: center;
   margin-top: 0;
+}
+
+.button {
+  padding: 10px;
+  border: solid 0.5px rgb(117, 117, 117);
+  background-color: rgb(255, 255, 255)
+}
+
+.edit-title {
+  color: black;
+}
+
+.input-field {
+  background-color: rgb(252, 253, 200);
+}
+
+.select-box {
+  background-color: gray;
 }

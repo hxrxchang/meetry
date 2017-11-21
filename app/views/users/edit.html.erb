@@ -1,9 +1,9 @@
-<h1>edit your profile</h1>
+<h2 class="edit-title">edit your profile</h1>
 <div>
   <%= form_for(@user_information, url: user_path(@user), method: :patch) do |f| %>
-    <%= f.text_field :tel, placeholder:"tel" %><br><br>
-    <%= f.email_field :gmail, placeholder:"gmail address" %><br><br>
-    <%= f.text_field :image, placeholder:"your image url" %><br><br>
-    <%= f.submit %>
+    <%= f.text_field :tel, placeholder:"tel", class: "input-field" %><br><br>
+    <%= f.email_field :gmail, placeholder:"gmail address", class: "input-field" %><br><br>
+    <%= f.text_field :image, placeholder:"your image url", class: "input-field" %><br><br>
+    <%= f.submit class: "button" %>
   <% end %>
 </div>
