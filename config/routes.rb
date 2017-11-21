@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resource :find
   resources :authenticates, only: [:new, :update]
   resources :pair_images, only: [:new, :create]
+  resources :social_accounts
 end
