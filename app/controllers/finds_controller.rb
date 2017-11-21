@@ -2,6 +2,8 @@ class FindsController < ApplicationController
   before_action :login_user, only: :show
 
   def show
+    @pair_image = PairImage.find(session[:img_id])
+    redirect_to new_photo_path unless @pair_image
     @user = User.find_by(uuid: params[:search])
     if @user
       # redirect_to user_path(@user) ホントはUserページに飛ばしてやりたい感じ

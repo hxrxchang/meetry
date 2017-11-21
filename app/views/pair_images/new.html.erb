@@ -1,5 +1,5 @@
 <%= form_for(@pair_image) do |f| %>
-  <%= f.file_field :image %>
+  <%= f.file_field :image, accept: "image/*" %>
   <!-- previewをつけてあげたい -->
   <!-- <img id= "preview-image" src=""> -->
   <%= f.submit %>

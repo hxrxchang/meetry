@@ -8,7 +8,8 @@ class PairImagesController < ApplicationController
   def create
     @pair_image = PairImage.new(pair_image_params)
     if @pair_image.save
-      find_path(img_id: @pair_image.id)
+      session[:img_id] = @pair_image.id
+      redirect_to find_path
     else
       render :new
     end

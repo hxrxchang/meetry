@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resource :find
   resource :login, only: [:new, :create], controller: "sessions"
   resources :authenticates, only: [:new, :update]
-  resources :pair_images, only: [:new, :create]
+  resources :pair_images, only: [:new, :create], path: "photo"
 end
