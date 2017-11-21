@@ -1,13 +1,14 @@
+<div class="preview" />
+
+</div>
 <%= form_for(@pair_image) do |f| %>
   <%= f.file_field :image, accept: "image/*" %>
   <!-- previewをつけてあげたい -->
   <!-- <img id= "preview-image" src=""> -->
-  <%= f.submit %>
+  <%= f.submit "この写真で決定！" ,class:"submit" %>
 <% end%>
 
-<div class="preview" />
 
-/* TODO: Jquery? Preview? */
 <%= javascript_tag do %>
   $(function(){
   //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
@@ -30,7 +31,6 @@
         // .prevewの領域の中にロードした画像を表示するimageタグを追加
         $preview.append($('<img>').attr({
                   src: e.target.result,
-                  width: "150px",
                   class: "preview",
                   title: file.name
               }));

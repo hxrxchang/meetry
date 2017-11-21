@@ -17,7 +17,7 @@ class AuthenticatesController < ApplicationController
   end
 
   private
-  
+
   def request_params
     params.require(:friend_request).permit(:request_status)
   end
