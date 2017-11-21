@@ -1,15 +1,17 @@
-<h1>Your ID</h1>
+<div class="signup">
+  <h1>Your ID</h1>
 
-<div class="sakusei">
-    <%= form_for(@user) do |f| %>
-    <div>
-      <%= f.text_field :uuid, placeholder:"YourId", class:"name-box" %>
-    </div>
+  <div class="sakusei">
+      <%= form_for(@user) do |f| %>
       <div>
-        <%= f.text_field :email, placeholder:"email", class:"mail-box" %>
+        <%= f.text_field :uuid, placeholder:"YourId", class:"name-box" %>
       </div>
-      <div>
-        <%= f.submit "登録", class:"send" %>
-      </div>
-    <% end %>
+        <div>
+          <%= f.text_field :email, placeholder:"email", class:"mail-box" %>
+        </div>
+        <div>
+          <%= f.submit "登録", class:"send" %>
+        </div>
+      <% end %>
+  </div>
 </div>
