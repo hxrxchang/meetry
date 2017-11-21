@@ -4,7 +4,6 @@
 body{
   margin: 0;
   font-family: "SF Pro JP", "SF Pro Text", "SF Pro Icons", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "Meiryo", "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
-
 }
 header{
   background-image: url(top);
@@ -12,19 +11,20 @@ header{
   background-repeat: no-repeat;
   width: 400px;
   height: 290px;
+  margin-top: 20px;
 }
 h1{
 color: white;
 text-align: center;
-margin-top: -20px;
+margin-top: -21px;
 margin-bottom: 0;
 font-size: 5rem;
 font-family: serif;
 }
 .first-contact{
-  margin-top: -80px;
+  margin-top: -46px;
   margin-bottom: 6rem;
-  color: gray;
+  color: black;
   text-align:center;
   font-size: 10px;
   padding-bottom: 3rem;
@@ -56,4 +56,5 @@ p{
   font-size: 2rem;
   color: #66FFFF;
   text-align: center;
+  margin-top: 0;
 }
