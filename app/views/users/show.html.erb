@@ -29,6 +29,8 @@
     </div>
 
     <h2>ユーザー情報</h2>
+    <p>電話番号 : <%= current_user.user_information.tel %></p>
+    <p>メールアドレス : <%= current_user.user_information.gmail %></p>
 
     <div id="user-social-profiles">
       <%= render current_user.social_accounts %>
