@@ -1,7 +1,0 @@
-<div>
-  <%= form_for(@social_account) do |f| %>
-    <%= f.select :provider, [["twitter", "twitter"], ["facebook", "facebook"], ["line", "line"], ["instagram", "instagram"]] %>
-    <%= f.text_field :url, placeholder:"url" %>
-    <%= f.submit %>
-  <% end %>
-</div>
