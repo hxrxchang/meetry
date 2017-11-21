@@ -1,6 +1,6 @@
 <h2>Your Receive Request</h2>
 <% @receive_requests.each do |r_request|%>
-  <p><%= r_request.friend.uuid %> : <%= r_request.request_status %> </p>
+  <p><%= r_request.request_user.uuid %> : <%= r_request.request_status %> </p>
 <% end %>
 
 <h2>Your Send Request</h2>

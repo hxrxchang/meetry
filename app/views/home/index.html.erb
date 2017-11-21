@@ -5,8 +5,11 @@
     Hello!
     <%= link_to current_user.uuid, current_user, class:"currentUser" %>
   <p>
-  <%= link_to "写真を撮ろう！", find_path %><br>
+  <%= link_to "写真を撮ろう！", new_pair_image_path %><br>
 <% end %>
 <div class="regist-box">
   <%= link_to "登録をしよう！", new_user_path , class:"registration" %>
+</div>
+<div class="regist-box">
+  <%= link_to "ログインしよう！", login_path, class:"registration" %>
 </div>
