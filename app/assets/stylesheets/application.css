@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+ body{
+   font-family: "SF Pro JP", "SF Pro Text", "SF Pro Icons", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "Meiryo", "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
+ }

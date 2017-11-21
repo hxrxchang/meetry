@@ -1,0 +1,5 @@
+<%= form_for(:session, url: login_path) do |f| %>
+  <%= f.label :user_uuid %>
+  <%= f.text_field :uuid %>
+  <%= f.submit "SendEmail" %>
+<% end %>
