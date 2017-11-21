@@ -41,7 +41,8 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    @user.user_information.update(user_information_params)
+    user_information = UserInformation.new(user_information_params)
+    @user.user_information = user_information
     if @user.save
       redirect_to @user
     else

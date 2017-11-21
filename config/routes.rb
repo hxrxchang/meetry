@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   resources :authenticates, only: [:new, :update]
   resources :social_accounts
   resources :pair_images, only: [:new, :create], path: "photo"
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 end
