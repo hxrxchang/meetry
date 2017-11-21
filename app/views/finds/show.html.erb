@@ -1,6 +1,8 @@
 <%= form_tag find_path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
-<%= image_tag @pair_image.image, width: "200px" %>
 <p>このひとは誰ですか？</p>
+<div>
+  <%= image_tag @pair_image.image, width: "200px" %>
+</div>
 <p>
   <%= text_field_tag :search, params[:search] %>
   <%= submit_tag "この人です！", :name => nil %>
