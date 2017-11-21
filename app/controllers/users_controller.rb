@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :mypage, only: :show
+  before_action :mypage_or_accept_user, only: :show
 
   def new
     @user = User.new
@@ -7,9 +7,13 @@ class UsersController < ApplicationController
 
   # TODO: ほんとはUserのShowページを用意してあげてそこから申請したい
   def show
-    @receive_requests = current_user.friend_requests
-    @send_requests = FriendRequest.where(request_user_id: current_user.id)
-    @social_account = SocialAccount.new
+    if user_signed_in? && current_user.id == params[:id].to_i
+      @receive_requests = FriendRequest.where(friend_id: current_user.id)
+      @send_requests = FriendRequest.where(request_user_id: current_user.id)
+      @social_account = SocialAccount.new
+    else
+      @user = User.find(params[:id])
+    end
   end
 
   # TODO: User IDのみで登録しているメールに再度ログインURLを発行して送る
@@ -37,8 +41,7 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    @user_information = UserInformation.new(user_information_params)
-    @user.user_information = @user_information
+    @user.user_information.update(user_information_params)
     if @user.save
       redirect_to @user
     else
@@ -55,8 +58,12 @@ class UsersController < ApplicationController
     params.require(:user_information).permit(:user_id, :tel, :gmail, :image)
   end
 
-  def mypage
-    if params[:id] != current_user.id.to_s
+  def mypage_or_accept_user
+    not_mypage = params[:id] != current_user.id.to_s
+    friends = FriendRequest.where(request_user_id: current_user.id, request_status: :accept)
+    friend = !!friends.find_by(id: params[:id])
+
+    if [not_mypage, !friend].all?
       flash[:error] = "MyPage Only!"
       redirect_to root_path
     end
