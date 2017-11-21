@@ -1,10 +1,12 @@
 <h1>Meetry</h1>
+<p class="first-contact">〜初対面を思い出に〜</p>
 <% if user_signed_in? %>
-  <p>
+  <p class="current">
     Hello!
-    <%= link_to current_user.uuid, current_user %>
+    <%= link_to current_user.uuid, current_user, class:"currentUser" %>
   <p>
-  <%= link_to "Connect Friend!", find_path %><br>
+  <%= link_to "写真を撮ろう！", find_path %><br>
 <% end %>
-
-<%= link_to "Registration", new_user_path %>
+<div class="regist-box">
+  <%= link_to "登録をしよう！", new_user_path , class:"registration" %>
+</div>
