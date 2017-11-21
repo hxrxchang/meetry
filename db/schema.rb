@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20171120161316) do
 
   create_table "user_informations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
-    t.integer "tel"
+    t.string "tel"
     t.string "gmail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
